@@ -75,11 +75,11 @@ public class PayController {
 		String mchTradeNo = PayUtil.getTradeNo();
 		if (ConstValue.CUSTODY_TYPE_LONG.equals(mercid)) { // 长程监护价格
 			cashnum = 0.01d;
-			temp = "智能心贴-长程监护";
+			temp = "复诚博纳-博游天下";
 		} else if (ConstValue.CUSTODY_TYPE_REALTIME_LONG.equals(mercid)) { //
 			// 长程+实时监护价格
 			cashnum = 0.02d;
-			temp = "智能心贴-实时长程监护";
+			temp = "复诚博纳-途乐志";
 		}
 		final String body = temp;
 		String total_fee = BigDecimal.valueOf(cashnum).multiply(BigDecimal.valueOf(100))
@@ -91,7 +91,7 @@ public class PayController {
 			parm.put("device_info", "WEB"); // 设备号，默认为“WEB”
 			parm.put("nonce_str", PayUtil.getNonceStr()); // 随机数
 			parm.put("body", body); // 商品描述
-			parm.put("attach", "测试公司"); // 附加字段
+			parm.put("attach", "测试微信支付"); // 附加字段
 			parm.put("out_trade_no", mchTradeNo); // 商户内部管控的订单号
 			parm.put("total_fee", total_fee); // 总费用：单位-分
 			parm.put("spbill_create_ip", PayUtil.getRemoteAddrIp(request)); // 获取客户端的IP地址
